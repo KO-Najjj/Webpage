@@ -1,50 +1,190 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f4f9;
+  color: #333;
+}
+.hero-header {
+  background: linear-gradient(135deg, #891caa, #0a364d);
+  color: #ffffff;
+  padding: 24px 16px;
+}
 
- body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f4f9;
-      color: #333;
-    }
-    header {
-      background: #891caa;
-      color: #b4981d;
-      padding: 24px 16px;
-      text-align: center;
-    }
-    main {
-      max-width: 900px;
-      margin: 24px auto;
-      padding: 0 16px;
-    }
-    section {
-      background: #b68989;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-      margin-bottom: 20px;
-      padding: 20px;
-    }
-    h2 {
-      margin-top: 0;
-      color: #0a364d;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-    li {
-      margin-bottom: 16px;
-    }
-    .gym-name {
-      font-weight: bold;
-      font-size: 1.1rem;
-    }
-    .gym-info {
-      color: #555;
-      line-height: 1.5;
-    }
-    footer {
-      text-align: center;
-      padding: 16px 0;
-      color: #777;
-      font-size: 0.95rem;
-    }
+.header-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.header-copy {
+  flex: 1;
+  min-width: 240px;
+}
+
+.header-copy h1 {
+  margin: 0 0 8px;
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+.header-copy p {
+  margin: 0;
+  font-size: 1rem;
+  color: #f3e4ff;
+}
+
+.header-image {
+  width: 280px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 700px) {
+  .header-content {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .header-copy h1 {
+    font-size: 1.6rem;
+  }
+
+  .header-image {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+  }
+}
+main {
+  max-width: 900px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+.search-panel {
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+  padding: 20px;
+}
+.search-panel label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #0a364d;
+}
+.search-bar {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.search-bar input {
+  flex: 1;
+  min-width: 220px;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+.search-bar button {
+  background: #891caa;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.search-status {
+  margin: 10px 0 0;
+  color: #666;
+  font-size: 0.95rem;
+}
+section {
+  background: #b68989;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+  padding: 20px;
+}
+.gym-section {
+  background: #f8f4ff;
+}
+h2 {
+  margin-top: 0;
+  color: #0a364d;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+li {
+  margin-bottom: 16px;
+}
+.gym-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+.gym-image {
+  width: 140px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+.gym-content {
+  flex: 1;
+}
+.gym-name {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+  color: #0a364d;
+}
+.gym-info {
+  color: #555;
+  line-height: 1.5;
+}
+.gym-price {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #e9d7f7;
+  color: #6a1b9a;
+  font-weight: bold;
+}
+.gym-info a {
+  color: #891caa;
+  text-decoration: none;
+}
+.gym-info a:hover {
+  text-decoration: underline;
+}
+@media (max-width: 700px) {
+  .gym-card {
+    flex-direction: column;
+  }
+
+  .gym-image {
+    width: 100%;
+    height: 180px;
+  }
+}
+footer {
+  text-align: center;
+  padding: 16px 0;
+  color: #777;
+  font-size: 0.95rem;
+}

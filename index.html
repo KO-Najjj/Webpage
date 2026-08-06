@@ -7,61 +7,228 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header>
-      <h1>Local Gyms Near San Francisco & Oakland</h1>
-      <p>
-        Fitness studios, strength training, and community gyms in the Bay Area.
-      </p>
+    <header class="hero-header">
+      <div class="header-content">
+        <div class="header-copy">
+          <h1>Local Gyms Near San Francisco & Oakland</h1>
+          <p>
+            Fitness studios, strength training, and community gyms in the Bay
+            Area.
+          </p>
+        </div>
+        <img
+          class="header-image"
+          src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=80"
+          alt="Modern gym interior with equipment"
+        />
+      </div>
     </header>
     <main>
-      <section>
+      <section class="search-panel">
+        <label for="location-search"
+          >Enter a city, neighborhood, or ZIP code</label
+        >
+        <div class="search-bar">
+          <input
+            type="text"
+            id="location-search"
+            placeholder="Try San Francisco, Mission, or 94103"
+          />
+          <button type="button" id="search-btn">Search</button>
+        </div>
+        <p id="search-status" class="search-status">
+          Showing the cheapest gyms near your search area.
+        </p>
+      </section>
+
+      <section class="gym-section">
         <h2>San Francisco Gyms</h2>
         <ul>
-          <li>
-            <div class="gym-name">SF Strength Lab</div>
-            <div class="gym-info">
-              Location: 123 Market St, San Francisco, CA<br />Focus: Strength
-              training, personal coaching, functional fitness.
+          <li
+            class="gym-card"
+            data-city="san francisco"
+            data-area="mission"
+            data-zip="94103"
+            data-price="59"
+          >
+            <img
+              class="gym-image"
+              src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80"
+              alt="Strength training gym interior"
+            />
+            <div class="gym-content">
+              <div class="gym-name">SF Strength Lab</div>
+              <div class="gym-info">
+                <div class="gym-price">$59/month</div>
+                <strong>Area:</strong> Mission • ZIP 94103<br />
+                <strong>Address:</strong>
+                <a
+                  href="https://maps.google.com/?q=123+Market+St+San+Francisco+CA"
+                  target="_blank"
+                  >123 Market St, San Francisco, CA</a
+                ><br />
+                <strong>Website:</strong>
+                <a href="https://www.example.com" target="_blank">example.com</a
+                ><br />
+                Focus: Strength training, personal coaching, functional fitness.
+              </div>
             </div>
           </li>
-          <li>
-            <div class="gym-name">Bay CrossFit</div>
-            <div class="gym-info">
-              Location: 456 Mission St, San Francisco, CA<br />Focus: CrossFit
-              classes, group training, nutrition support.
+          <li
+            class="gym-card"
+            data-city="san francisco"
+            data-area="downtown"
+            data-zip="94105"
+            data-price="49"
+          >
+            <img
+              class="gym-image"
+              src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=800&q=80"
+              alt="CrossFit gym interior"
+            />
+            <div class="gym-content">
+              <div class="gym-name">Bay CrossFit</div>
+              <div class="gym-info">
+                <div class="gym-price">$49/month</div>
+                <strong>Area:</strong> Downtown • ZIP 94105<br />
+                <strong>Address:</strong>
+                <a
+                  href="https://maps.google.com/?q=456+Mission+St+San+Francisco+CA"
+                  target="_blank"
+                  >456 Mission St, San Francisco, CA</a
+                ><br />
+                <strong>Website:</strong>
+                <a href="https://www.example.com" target="_blank">example.com</a
+                ><br />
+                Focus: CrossFit classes, group training, nutrition support.
+              </div>
             </div>
           </li>
-          <li>
-            <div class="gym-name">Golden Gate Fitness</div>
-            <div class="gym-info">
-              Location: 789 Van Ness Ave, San Francisco, CA<br />Focus: Cardio,
-              weight room, spin, yoga, and personal training.
+          <li
+            class="gym-card"
+            data-city="san francisco"
+            data-area="marina"
+            data-zip="94123"
+            data-price="69"
+          >
+            <img
+              class="gym-image"
+              src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80"
+              alt="Fitness center with cardio equipment"
+            />
+            <div class="gym-content">
+              <div class="gym-name">Golden Gate Fitness</div>
+              <div class="gym-info">
+                <div class="gym-price">$69/month</div>
+                <strong>Area:</strong> Marina • ZIP 94123<br />
+                <strong>Address:</strong>
+                <a
+                  href="https://maps.google.com/?q=789+Van+Ness+Ave+San+Francisco+CA"
+                  target="_blank"
+                  >789 Van Ness Ave, San Francisco, CA</a
+                ><br />
+                <strong>Website:</strong>
+                <a href="https://www.example.com" target="_blank">example.com</a
+                ><br />
+                Focus: Cardio, weight room, spin, yoga, and personal training.
+              </div>
             </div>
           </li>
         </ul>
       </section>
-      <section>
+      <section class="gym-section">
         <h2>Oakland Gyms</h2>
         <ul>
-          <li>
-            <div class="gym-name">Oakland Fit Club</div>
-            <div class="gym-info">
-              Location: 101 Broadway, Oakland, CA<br />Focus: Strength classes,
-              HIIT, boxing, and open gym access.
+          <li
+            class="gym-card"
+            data-city="oakland"
+            data-area="jack london square"
+            data-zip="94607"
+            data-price="45"
+          >
+            <img
+              class="gym-image"
+              src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=800&q=80"
+              alt="Oakland fitness club interior"
+            />
+            <div class="gym-content">
+              <div class="gym-name">Oakland Fit Club</div>
+              <div class="gym-info">
+                <div class="gym-price">$45/month</div>
+                <strong>Area:</strong> Jack London Square • ZIP 94607<br />
+                <strong>Address:</strong>
+                <a
+                  href="https://maps.google.com/?q=101+Broadway+Oakland+CA"
+                  target="_blank"
+                  >101 Broadway, Oakland, CA</a
+                ><br />
+                <strong>Website:</strong>
+                <a href="https://www.example.com" target="_blank">example.com</a
+                ><br />
+                Focus: Strength classes, HIIT, boxing, and open gym access.
+              </div>
             </div>
           </li>
-          <li>
-            <div class="gym-name">East Bay Athletic</div>
-            <div class="gym-info">
-              Location: 202 Franklin St, Oakland, CA<br />Focus: Group fitness,
-              cycling, functional training, and wellness coaching.
+          <li
+            class="gym-card"
+            data-city="oakland"
+            data-area="temescal"
+            data-zip="94609"
+            data-price="55"
+          >
+            <img
+              class="gym-image"
+              src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80"
+              alt="Gym studio interior"
+            />
+            <div class="gym-content">
+              <div class="gym-name">East Bay Athletic</div>
+              <div class="gym-info">
+                <div class="gym-price">$55/month</div>
+                <strong>Area:</strong> Temescal • ZIP 94609<br />
+                <strong>Address:</strong>
+                <a
+                  href="https://maps.google.com/?q=202+Franklin+St+Oakland+CA"
+                  target="_blank"
+                  >202 Franklin St, Oakland, CA</a
+                ><br />
+                <strong>Website:</strong>
+                <a href="https://www.example.com" target="_blank">example.com</a
+                ><br />
+                Focus: Group fitness, cycling, functional training, and wellness
+                coaching.
+              </div>
             </div>
           </li>
-          <li>
-            <div class="gym-name">Bayview Boxing & Fitness</div>
-            <div class="gym-info">
-              Location: 303 Mandela Pkwy, Oakland, CA<br />Focus: Boxing,
-              strength circuits, youth programs, and small group training.
+          <li
+            class="gym-card"
+            data-city="oakland"
+            data-area="bayview"
+            data-zip="94124"
+            data-price="39"
+          >
+            <img
+              class="gym-image"
+              src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80"
+              alt="Boxing and fitness gym"
+            />
+            <div class="gym-content">
+              <div class="gym-name">Bayview Boxing & Fitness</div>
+              <div class="gym-info">
+                <div class="gym-price">$39/month</div>
+                <strong>Area:</strong> Bayview • ZIP 94124<br />
+                <strong>Address:</strong>
+                <a
+                  href="https://maps.google.com/?q=303+Mandela+Pkwy+Oakland+CA"
+                  target="_blank"
+                  >303 Mandela Pkwy, Oakland, CA</a
+                ><br />
+                <strong>Website:</strong>
+                <a href="https://www.example.com" target="_blank">example.com</a
+                ><br />
+                Focus: Boxing, strength circuits, youth programs, and small
+                group training.
+              </div>
             </div>
           </li>
         </ul>
@@ -73,5 +240,6 @@
         journey.
       </p>
     </footer>
+    <script src="script.js"></script>
   </body>
 </html>
