@@ -2,244 +2,686 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Local Gyms near San Francisco & Oakland</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <title>Bay Area Budget Gyms</title>
+
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
+
+    <!-- HEADER -->
     <header class="hero-header">
-      <div class="header-content">
-        <div class="header-copy">
-          <h1>Local Gyms Near San Francisco & Oakland</h1>
-          <p>
-            Fitness studios, strength training, and community gyms in the Bay
-            Area.
+
+      <nav class="navbar">
+        <div class="logo">
+          BayFit
+        </div>
+
+        <div class="nav-text">
+          Affordable fitness around the Bay
+        </div>
+      </nav>
+
+      <div class="hero-content">
+
+        <div class="hero-copy">
+
+          <p class="eyebrow">
+            BAY AREA GYM FINDER
           </p>
+
+          <h1>
+            Find an affordable gym near you.
+          </h1>
+
+          <p class="hero-description">
+            Search your Bay Area city to discover budget-friendly gyms,
+            fitness centers, boxing gyms, strength studios, and more.
+          </p>
+
+          <!-- SEARCH -->
+          <div class="search-container">
+
+            <label for="location-search">
+              Where are you looking for a gym?
+            </label>
+
+            <div class="search-bar">
+
+              <input
+                type="text"
+                id="location-search"
+                placeholder="Try Oakland, Berkeley, San Jose..."
+                list="bay-area-cities"
+              />
+
+              <datalist id="bay-area-cities">
+
+                <option value="Alameda"></option>
+                <option value="Berkeley"></option>
+                <option value="Concord"></option>
+                <option value="Daly City"></option>
+                <option value="Fremont"></option>
+                <option value="Hayward"></option>
+                <option value="Oakland"></option>
+                <option value="Richmond"></option>
+                <option value="San Francisco"></option>
+                <option value="San Jose"></option>
+                <option value="San Mateo"></option>
+                <option value="South San Francisco"></option>
+                <option value="Walnut Creek"></option>
+
+              </datalist>
+
+              <button
+                type="button"
+                id="search-btn"
+              >
+                Find Gyms
+              </button>
+
+            </div>
+
+            <p
+              id="search-status"
+              class="search-status"
+            >
+              Enter a Bay Area city to start your search.
+            </p>
+
+          </div>
+
         </div>
-        <img
-          class="header-image"
-          src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=80"
-          alt="Modern gym interior with equipment"
-        />
-      </div>
-    </header>
-    <main>
-      <section class="search-panel">
-        <label for="location-search"
-          >Enter a city, neighborhood, or ZIP code</label
-        >
-        <div class="search-bar">
-          <input
-            type="text"
-            id="location-search"
-            placeholder="Try San Francisco, Mission, or 94103"
+
+        <div class="hero-visual">
+
+          <img
+            src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1000&q=80"
+            alt="Modern fitness gym"
+            class="hero-image"
           />
-          <button type="button" id="search-btn">Search</button>
+
+          <div class="hero-card">
+            <span class="hero-card-icon">
+              $
+            </span>
+
+            <div>
+              <strong>
+                Budget focused
+              </strong>
+
+              <p>
+                Compare affordable options around the Bay.
+              </p>
+            </div>
+          </div>
+
         </div>
-        <p id="search-status" class="search-status">
-          Showing the cheapest gyms near your search area.
+
+      </div>
+
+    </header>
+
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+      <!-- INTRO -->
+      <section class="intro-section">
+
+        <p class="section-label">
+          FIND YOUR FIT
         </p>
+
+        <h2>
+          Fitness shouldn't have to cost a fortune.
+        </h2>
+
+        <p>
+          Search by city and explore affordable gym options throughout
+          the Bay Area. Browse locations, workout styles, websites,
+          and other details before choosing the gym that works for you.
+        </p>
+
       </section>
 
-      <section class="gym-section">
-        <h2>San Francisco Gyms</h2>
-        <ul>
-          <li
+
+      <!-- RESULTS -->
+      <section
+        class="results-section"
+        id="results-section"
+      >
+
+        <div class="results-heading">
+
+          <div>
+            <p class="section-label">
+              SEARCH RESULTS
+            </p>
+
+            <h2 id="results-title">
+              Affordable gyms near you
+            </h2>
+          </div>
+
+          <select id="sort-options" aria-label="Sort gym results">
+
+  <option value="default">
+    Sort results
+  </option>
+
+  <option value="price">
+    Cheapest first
+  </option>
+
+  <option value="name">
+    A–Z
+  </option>
+
+</select>
+        </div>
+
+
+        <!-- GYM LIST -->
+        <div
+          class="gym-grid"
+          id="gym-list"
+        >
+
+
+          <!-- SAN FRANCISCO -->
+
+          <article
             class="gym-card"
             data-city="san francisco"
-            data-area="mission"
-            data-zip="94103"
-            data-price="59"
+            data-rating="4.8"
+            data-name="Strong Friends Gym"
           >
+
             <img
               class="gym-image"
-              src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80"
-              alt="Strength training gym interior"
+              src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=900&q=80"
+              alt="Strength training equipment"
             />
+
             <div class="gym-content">
-              <div class="gym-name">SF Strength Lab</div>
-              <div class="gym-info">
-                <div class="gym-price">$59/month</div>
-                <strong>Area:</strong> Mission • ZIP 94103<br />
-                <strong>Address:</strong>
-                <a
-                  href="https://maps.google.com/?q=123+Market+St+San+Francisco+CA"
-                  target="_blank"
-                  >123 Market St, San Francisco, CA</a
-                ><br />
-                <strong>Website:</strong>
-                <a href="https://www.example.com" target="_blank">example.com</a
-                ><br />
-                Focus: Strength training, personal coaching, functional fitness.
+
+              <div class="gym-top-row">
+
+                <span class="budget-badge">
+                  Budget Friendly
+                </span>
+
+                <span class="gym-rating">
+                  ★ 4.8
+                </span>
+
               </div>
+
+              <h3 class="gym-name">
+                Strong Friends Gym
+              </h3>
+
+              <p class="gym-location">
+                San Francisco, CA
+              </p>
+
+              <p class="gym-focus">
+                Strength training, personal coaching, and
+                small-group fitness.
+              </p>
+
+              <a
+                class="gym-link"
+                href="https://maps.google.com/?q=1825+Market+St+San+Francisco+CA+94103"
+                target="_blank"
+              >
+                View Location →
+              </a>
+
             </div>
-          </li>
-          <li
+
+          </article>
+
+
+          <article
             class="gym-card"
             data-city="san francisco"
-            data-area="downtown"
-            data-zip="94105"
-            data-price="49"
+            data-rating="4.7"
+            data-name="City CrossFit"
           >
+
             <img
               class="gym-image"
-              src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=800&q=80"
-              alt="CrossFit gym interior"
+              src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=900&q=80"
+              alt="CrossFit gym"
             />
+
             <div class="gym-content">
-              <div class="gym-name">Bay CrossFit</div>
-              <div class="gym-info">
-                <div class="gym-price">$49/month</div>
-                <strong>Area:</strong> Downtown • ZIP 94105<br />
-                <strong>Address:</strong>
-                <a
-                  href="https://maps.google.com/?q=456+Mission+St+San+Francisco+CA"
-                  target="_blank"
-                  >456 Mission St, San Francisco, CA</a
-                ><br />
-                <strong>Website:</strong>
-                <a href="https://www.example.com" target="_blank">example.com</a
-                ><br />
-                Focus: CrossFit classes, group training, nutrition support.
+
+              <div class="gym-top-row">
+
+                <span class="budget-badge">
+                  Local Gym
+                </span>
+
+                <span class="gym-rating">
+                  ★ 4.7
+                </span>
+
               </div>
+
+              <h3 class="gym-name">
+                City CrossFit
+              </h3>
+
+              <p class="gym-location">
+                San Francisco, CA
+              </p>
+
+              <p class="gym-focus">
+                CrossFit classes, group fitness, strength training,
+                and coaching.
+              </p>
+
+              <a
+                class="gym-link"
+                href="https://maps.google.com/?q=2+Brook+St+San+Francisco+CA+94110"
+                target="_blank"
+              >
+                View Location →
+              </a>
+
             </div>
-          </li>
-          <li
+
+          </article>
+
+
+          <article
             class="gym-card"
             data-city="san francisco"
-            data-area="marina"
-            data-zip="94123"
-            data-price="69"
+            data-rating="4.8"
+            data-name="CrossFit Golden Gate"
           >
+
             <img
               class="gym-image"
-              src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80"
-              alt="Fitness center with cardio equipment"
+              src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=80"
+              alt="Fitness gym interior"
             />
+
             <div class="gym-content">
-              <div class="gym-name">Golden Gate Fitness</div>
-              <div class="gym-info">
-                <div class="gym-price">$69/month</div>
-                <strong>Area:</strong> Marina • ZIP 94123<br />
-                <strong>Address:</strong>
-                <a
-                  href="https://maps.google.com/?q=789+Van+Ness+Ave+San+Francisco+CA"
-                  target="_blank"
-                  >789 Van Ness Ave, San Francisco, CA</a
-                ><br />
-                <strong>Website:</strong>
-                <a href="https://www.example.com" target="_blank">example.com</a
-                ><br />
-                Focus: Cardio, weight room, spin, yoga, and personal training.
+
+              <div class="gym-top-row">
+
+                <span class="budget-badge">
+                  Fitness Studio
+                </span>
+
+                <span class="gym-rating">
+                  ★ 4.8
+                </span>
+
               </div>
+
+              <h3 class="gym-name">
+                CrossFit Golden Gate
+              </h3>
+
+              <p class="gym-location">
+                San Francisco, CA
+              </p>
+
+              <p class="gym-focus">
+                CrossFit, HYROX, personal training,
+                weightlifting, and open gym.
+              </p>
+
+              <a
+                class="gym-link"
+                href="https://maps.google.com/?q=1946+Van+Ness+Ave+San+Francisco+CA+94109"
+                target="_blank"
+              >
+                View Location →
+              </a>
+
             </div>
-          </li>
-        </ul>
+
+          </article>
+
+
+          <!-- OAKLAND -->
+
+          <article
+            class="gym-card"
+            data-city="oakland"
+            data-rating="4.8"
+            data-name="Truve Fit"
+          >
+
+            <img
+              class="gym-image"
+              src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=900&q=80"
+              alt="Fitness studio"
+            />
+
+            <div class="gym-content">
+
+              <div class="gym-top-row">
+
+                <span class="budget-badge">
+                  Budget Friendly
+                </span>
+
+                <span class="gym-rating">
+                  ★ 4.8
+                </span>
+
+              </div>
+
+              <h3 class="gym-name">
+                Truve Fit
+              </h3>
+
+              <p class="gym-location">
+                Oakland, CA
+              </p>
+
+              <p class="gym-focus">
+                Strength training, HIIT, personal training,
+                and group fitness.
+              </p>
+
+              <a
+                class="gym-link"
+                href="https://maps.google.com/?q=420+14th+St+Oakland+CA+94612"
+                target="_blank"
+              >
+                View Location →
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <article
+            class="gym-card"
+            data-city="oakland"
+            data-rating="4.6"
+            data-name="East Bay Athletic Club"
+          >
+
+            <img
+              class="gym-image"
+              src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=80"
+              alt="Gym training area"
+            />
+
+            <div class="gym-content">
+
+              <div class="gym-top-row">
+
+                <span class="budget-badge">
+                  Local Gym
+                </span>
+
+                <span class="gym-rating">
+                  ★ 4.6
+                </span>
+
+              </div>
+
+              <h3 class="gym-name">
+                East Bay Athletic Club
+              </h3>
+
+              <p class="gym-location">
+                Oakland, CA
+              </p>
+
+              <p class="gym-focus">
+                Functional training, group fitness, strength,
+                and wellness.
+              </p>
+
+              <a
+                class="gym-link"
+                href="https://maps.google.com/?q=5036+Telegraph+Ave+Oakland+CA+94609"
+                target="_blank"
+              >
+                View Location →
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <article
+            class="gym-card"
+            data-city="oakland"
+            data-rating="4.7"
+            data-name="King's Boxing Gym"
+          >
+
+            <img
+              class="gym-image"
+              src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=900&q=80"
+              alt="Boxing gym"
+            />
+
+            <div class="gym-content">
+
+              <div class="gym-top-row">
+
+                <span class="budget-badge">
+                  Boxing
+                </span>
+
+                <span class="gym-rating">
+                  ★ 4.7
+                </span>
+
+              </div>
+
+              <h3 class="gym-name">
+                King's Boxing Gym
+              </h3>
+
+              <p class="gym-location">
+                Oakland, CA
+              </p>
+
+              <p class="gym-focus">
+                Boxing, youth programs, conditioning,
+                and strength training.
+              </p>
+
+              <a
+                class="gym-link"
+                href="https://maps.google.com/?q=843+35th+Ave+Oakland+CA+94601"
+                target="_blank"
+              >
+                View Location →
+              </a>
+
+            </div>
+
+          </article>
+
+        </div>
+
+
+        <!-- EMPTY SEARCH MESSAGE -->
+
+        <div
+          id="no-results"
+          class="no-results"
+          hidden
+        >
+
+          <div class="no-results-icon">
+            ☼
+          </div>
+
+          <h3>
+            We don't have gyms for that city yet.
+          </h3>
+
+          <p>
+            Try another Bay Area city or check back as
+            more locations are added.
+          </p>
+
+        </div>
+
       </section>
-      <section class="gym-section">
-        <h2>Oakland Gyms</h2>
-        <ul>
-          <li
-            class="gym-card"
-            data-city="oakland"
-            data-area="jack london square"
-            data-zip="94607"
-            data-price="45"
+
+
+      <!-- CITIES -->
+
+      <section class="cities-section">
+
+        <div class="cities-copy">
+
+          <p class="section-label">
+            AROUND THE BAY
+          </p>
+
+          <h2>
+            Explore gyms across Bay Area cities.
+          </h2>
+
+          <p>
+            We're building a growing directory of affordable
+            fitness options throughout the Bay.
+          </p>
+
+        </div>
+
+        <div class="city-tags">
+
+          <button
+            class="city-button"
+            data-search-city="san francisco"
           >
-            <img
-              class="gym-image"
-              src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=800&q=80"
-              alt="Oakland fitness club interior"
-            />
-            <div class="gym-content">
-              <div class="gym-name">Oakland Fit Club</div>
-              <div class="gym-info">
-                <div class="gym-price">$45/month</div>
-                <strong>Area:</strong> Jack London Square • ZIP 94607<br />
-                <strong>Address:</strong>
-                <a
-                  href="https://maps.google.com/?q=101+Broadway+Oakland+CA"
-                  target="_blank"
-                  >101 Broadway, Oakland, CA</a
-                ><br />
-                <strong>Website:</strong>
-                <a href="https://www.example.com" target="_blank">example.com</a
-                ><br />
-                Focus: Strength classes, HIIT, boxing, and open gym access.
-              </div>
-            </div>
-          </li>
-          <li
-            class="gym-card"
-            data-city="oakland"
-            data-area="temescal"
-            data-zip="94609"
-            data-price="55"
+            San Francisco
+          </button>
+
+          <button
+            class="city-button"
+            data-search-city="oakland"
           >
-            <img
-              class="gym-image"
-              src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80"
-              alt="Gym studio interior"
-            />
-            <div class="gym-content">
-              <div class="gym-name">East Bay Athletic</div>
-              <div class="gym-info">
-                <div class="gym-price">$55/month</div>
-                <strong>Area:</strong> Temescal • ZIP 94609<br />
-                <strong>Address:</strong>
-                <a
-                  href="https://maps.google.com/?q=202+Franklin+St+Oakland+CA"
-                  target="_blank"
-                  >202 Franklin St, Oakland, CA</a
-                ><br />
-                <strong>Website:</strong>
-                <a href="https://www.example.com" target="_blank">example.com</a
-                ><br />
-                Focus: Group fitness, cycling, functional training, and wellness
-                coaching.
-              </div>
-            </div>
-          </li>
-          <li
-            class="gym-card"
-            data-city="oakland"
-            data-area="bayview"
-            data-zip="94124"
-            data-price="39"
+            Oakland
+          </button>
+
+          <button
+            class="city-button"
+            data-search-city="berkeley"
           >
-            <img
-              class="gym-image"
-              src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80"
-              alt="Boxing and fitness gym"
-            />
-            <div class="gym-content">
-              <div class="gym-name">Bayview Boxing & Fitness</div>
-              <div class="gym-info">
-                <div class="gym-price">$39/month</div>
-                <strong>Area:</strong> Bayview • ZIP 94124<br />
-                <strong>Address:</strong>
-                <a
-                  href="https://maps.google.com/?q=303+Mandela+Pkwy+Oakland+CA"
-                  target="_blank"
-                  >303 Mandela Pkwy, Oakland, CA</a
-                ><br />
-                <strong>Website:</strong>
-                <a href="https://www.example.com" target="_blank">example.com</a
-                ><br />
-                Focus: Boxing, strength circuits, youth programs, and small
-                group training.
-              </div>
-            </div>
-          </li>
-        </ul>
+            Berkeley
+          </button>
+
+          <button
+            class="city-button"
+            data-search-city="alameda"
+          >
+            Alameda
+          </button>
+
+          <button
+            class="city-button"
+            data-search-city="daly city"
+          >
+            Daly City
+          </button>
+
+          <button
+            class="city-button"
+            data-search-city="san mateo"
+          >
+            San Mateo
+          </button>
+
+          <button
+            class="city-button"
+            data-search-city="hayward"
+          >
+            Hayward
+          </button>
+
+          <button
+            class="city-button"
+            data-search-city="fremont"
+          >
+            Fremont
+          </button>
+
+          <button
+            class="city-button"
+            data-search-city="san jose"
+          >
+            San Jose
+          </button>
+
+          <button
+            class="city-button"
+            data-search-city="richmond"
+          >
+            Richmond
+          </button>
+
+          <button
+            class="city-button"
+            data-search-city="walnut creek"
+          >
+            Walnut Creek
+          </button>
+
+          <button
+            class="city-button"
+            data-search-city="concord"
+          >
+            Concord
+          </button>
+
+        </div>
+
       </section>
+
     </main>
+
+
+    <!-- FOOTER -->
+
     <footer>
+
+      <div class="footer-logo">
+        BayFit
+      </div>
+
       <p>
-        Find a local gym, schedule a tour, and start your Bay Area fitness
-        journey.
+        Helping Bay Area residents find fitness options
+        that fit their location and their budget.
       </p>
+
+      <p class="footer-note">
+        Gym prices and availability can change.
+        Check with each gym for current membership information.
+      </p>
+
     </footer>
+
+
     <script src="script.js"></script>
+
   </body>
 </html>
