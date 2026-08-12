@@ -89,8 +89,8 @@ const gyms = [
     city: "Oakland",
     address: "843 35th Ave, Oakland, CA 94601",
     type: "Boxing",
-    website: "https://kingsboxinggym.com/",
-    notes:
+
+    notes: 
       "Boxing training, conditioning, strength work, and youth programs.",
     image:
       "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=900&q=80"
@@ -207,7 +207,7 @@ const gyms = [
     city: "Alameda",
     address: "2227 Mariner Square Loop, Alameda, CA 94501",
     type: "Gym",
-    website: "https://www.alamedafns.com/",
+    website: "https://alamedafitnessandspa.com/Home",
     notes:
       "Gym offering cardio, strength training, fitness classes, and wellness services.",
     image:
@@ -439,7 +439,7 @@ const gyms = [
     city: "Hayward",
     address: "22475 Foothill Blvd, Hayward, CA 94541",
     type: "Pilates",
-    website: "https://www.google.com/search?q=KORA+Pilates+Hayward",
+    website: "https://www.kora-pilates.com",
     notes:
       "Pilates studio focused on controlled movement, core strength, and flexibility.",
     image:
@@ -452,7 +452,7 @@ const gyms = [
     address: "28460 Hesperian Blvd, Hayward, CA 94545",
     type: "Strength Gym",
     website:
-      "https://www.google.com/search?q=Hayward+Strength+and+Glute+Studio",
+      "https://haywardstrength.com/",
     notes:
       "Strength-focused studio offering resistance and lower-body training.",
     image:
@@ -518,7 +518,7 @@ const gyms = [
     address: "203 Southgate Ave, Daly City, CA 94015",
     type: "Yoga + Pilates",
     website:
-      "https://www.google.com/search?q=Hot+Yoga+Plus+Daly+City",
+      "https://hotyogaplus-dc.com",
     notes:
       "Studio offering heated fitness, movement, yoga, and Pilates-style classes.",
     image:
@@ -768,7 +768,7 @@ const gyms = [
     address: "2125 Ygnacio Valley Rd #109, Walnut Creek, CA 94596",
     type: "Pilates",
     website:
-      "https://www.google.com/search?q=The+Hundred+and+More+Pilates+Walnut+Creek",
+      "https://www.thehundredandmore.com",
     notes:
       "Pilates studio focused on strength, movement, balance, and mobility.",
     image:
