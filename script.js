@@ -919,10 +919,47 @@ function formatCityName(city) {
 
 
 // =====================================
+// PERSONALIZED GYM IMAGE / LOGO
+// =====================================
+
+function getGymImage(gym) {
+
+  // If the gym has a real website,
+  // try to display branding from that website.
+  if (
+    gym.website &&
+    !gym.website.includes("google.com/search")
+  ) {
+    try {
+      const websiteURL = new URL(gym.website);
+
+      const domain = websiteURL.hostname;
+
+      return (
+        "https://www.google.com/s2/favicons?sz=256&domain=" +
+        encodeURIComponent(domain)
+      );
+
+    } catch (error) {
+      console.log(
+        "Could not create personalized image for:",
+        gym.name
+      );
+    }
+  }
+
+  // If the business intentionally has no website,
+  // keep its existing image.
+  return gym.image;
+}
+
+
+// =====================================
 // DISPLAY GYM CARDS
 // =====================================
 
 function displayGyms(gymArray) {
+
   gymList.innerHTML = "";
 
   if (gymArray.length === 0) {
@@ -933,44 +970,92 @@ function displayGyms(gymArray) {
   noResults.hidden = true;
 
   gymArray.forEach(function (gym) {
+
     const card = document.createElement("article");
 
     card.className = "gym-card";
+
+
+    // -------------------------------------
+    // GOOGLE MAPS LINK
+    // -------------------------------------
 
     const mapLink =
       "https://www.google.com/maps/search/?api=1&query=" +
       encodeURIComponent(gym.address);
 
+
+    // -------------------------------------
+    // WEBSITE BUTTON
+    // -------------------------------------
+
+    let websiteButton = "";
+
+    if (gym.website) {
+
+      websiteButton = `
+        <a
+          class="gym-link website-link"
+          href="${gym.website}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Visit Website →
+        </a>
+      `;
+
+    }
+
+
+    // -------------------------------------
+    // BUILD CARD
+    // -------------------------------------
+
     card.innerHTML = `
-      <img
-        class="gym-image"
-        src="${gym.image}"
-        alt="${gym.name}"
-      />
+
+      <div class="gym-image-container">
+
+        <img
+          class="gym-image gym-logo"
+          src="${getGymImage(gym)}"
+          alt="${gym.name}"
+          data-fallback="${gym.image}"
+        />
+
+      </div>
+
 
       <div class="gym-content">
 
+
         <div class="gym-top-row">
+
           <span class="budget-badge">
             ${gym.type}
           </span>
+
         </div>
+
 
         <h3 class="gym-name">
           ${gym.name}
         </h3>
 
+
         <p class="gym-location">
           ${gym.city}, CA
         </p>
+
 
         <p class="gym-address">
           ${gym.address}
         </p>
 
+
         <p class="gym-focus">
           ${gym.notes}
         </p>
+
 
         <div class="gym-links">
 
@@ -983,22 +1068,46 @@ function displayGyms(gymArray) {
             View Location →
           </a>
 
-          <a
-            class="gym-link website-link"
-            href="${gym.website}"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Visit Website →
-          </a>
+          ${websiteButton}
 
         </div>
+
 
       </div>
     `;
 
+
+    // -------------------------------------
+    // IMAGE FALLBACK
+    // -------------------------------------
+
+    const cardImage =
+      card.querySelector(".gym-image");
+
+    cardImage.addEventListener(
+      "error",
+      function () {
+
+        const fallback =
+          cardImage.dataset.fallback;
+
+        if (
+          fallback &&
+          cardImage.src !== fallback
+        ) {
+
+          cardImage.src = fallback;
+
+        }
+
+      }
+    );
+
+
     gymList.appendChild(card);
+
   });
+
 }
 
 
@@ -1007,9 +1116,17 @@ function displayGyms(gymArray) {
 // =====================================
 
 function searchGyms() {
-  const searchCity = cleanCityName(searchInput.value);
+
+  const searchCity =
+    cleanCityName(searchInput.value);
+
+
+  // -------------------------------------
+  // EMPTY SEARCH
+  // -------------------------------------
 
   if (searchCity === "") {
+
     displayGyms(gyms);
 
     resultsTitle.textContent =
@@ -1019,39 +1136,81 @@ function searchGyms() {
       "Enter a Bay Area city to start your search.";
 
     return;
+
   }
 
-  const matchingGyms = gyms.filter(function (gym) {
-    return gym.city.toLowerCase() === searchCity;
-  });
 
-  const cityName = formatCityName(searchCity);
+  // -------------------------------------
+  // FIND MATCHING CITY
+  // -------------------------------------
+
+  const matchingGyms =
+    gyms.filter(function (gym) {
+
+      return (
+        gym.city.toLowerCase() ===
+        searchCity
+      );
+
+    });
+
+
+  const cityName =
+    formatCityName(searchCity);
+
+
+  // -------------------------------------
+  // RESULTS FOUND
+  // -------------------------------------
 
   if (matchingGyms.length > 0) {
+
     resultsTitle.textContent =
       `Gyms & Pilates in ${cityName}`;
 
     searchStatus.textContent =
       `Found ${matchingGyms.length} fitness options in ${cityName}.`;
-  } else {
+
+  }
+
+
+  // -------------------------------------
+  // NO RESULTS
+  // -------------------------------------
+
+  else {
+
     resultsTitle.textContent =
       `Fitness options in ${cityName}`;
 
     searchStatus.textContent =
       `We don't have listings for ${cityName} yet. Try another Bay Area city.`;
+
   }
+
 
   displayGyms(matchingGyms);
 
+
+  // -------------------------------------
+  // SCROLL TO RESULTS
+  // -------------------------------------
+
   const resultsSection =
-    document.getElementById("results-section");
+    document.getElementById(
+      "results-section"
+    );
+
 
   if (resultsSection) {
+
     resultsSection.scrollIntoView({
       behavior: "smooth",
       block: "start"
     });
+
   }
+
 }
 
 
@@ -1059,35 +1218,58 @@ function searchGyms() {
 // SEARCH BUTTON
 // =====================================
 
-searchButton.addEventListener("click", function () {
-  searchGyms();
-});
+searchButton.addEventListener(
+  "click",
+  function () {
+
+    searchGyms();
+
+  }
+);
 
 
 // =====================================
 // PRESS ENTER TO SEARCH
 // =====================================
 
-searchInput.addEventListener("keydown", function (event) {
-  if (event.key === "Enter") {
-    searchGyms();
+searchInput.addEventListener(
+  "keydown",
+  function (event) {
+
+    if (event.key === "Enter") {
+
+      searchGyms();
+
+    }
+
   }
-});
+);
 
 
 // =====================================
 // CITY BUTTONS
 // =====================================
 
-cityButtons.forEach(function (button) {
-  button.addEventListener("click", function () {
-    const city = button.dataset.searchCity;
+cityButtons.forEach(
+  function (button) {
 
-    searchInput.value = formatCityName(city);
+    button.addEventListener(
+      "click",
+      function () {
 
-    searchGyms();
-  });
-});
+        const city =
+          button.dataset.searchCity;
+
+        searchInput.value =
+          formatCityName(city);
+
+        searchGyms();
+
+      }
+    );
+
+  }
+);
 
 
 // =====================================
@@ -1095,38 +1277,92 @@ cityButtons.forEach(function (button) {
 // =====================================
 
 if (sortOptions) {
-  sortOptions.addEventListener("change", function () {
-    const option = sortOptions.value;
 
-    const searchCity =
-      cleanCityName(searchInput.value);
+  sortOptions.addEventListener(
+    "change",
+    function () {
 
-    let currentGyms;
+      const option =
+        sortOptions.value;
 
-    if (searchCity !== "") {
-      currentGyms = gyms.filter(function (gym) {
-        return gym.city.toLowerCase() === searchCity;
-      });
-    } else {
-      currentGyms = [...gyms];
+
+      const searchCity =
+        cleanCityName(
+          searchInput.value
+        );
+
+
+      let currentGyms;
+
+
+      // ---------------------------------
+      // GET CURRENT CITY RESULTS
+      // ---------------------------------
+
+      if (searchCity !== "") {
+
+        currentGyms =
+          gyms.filter(
+            function (gym) {
+
+              return (
+                gym.city.toLowerCase() ===
+                searchCity
+              );
+
+            }
+          );
+
+      } else {
+
+        currentGyms = [...gyms];
+
+      }
+
+
+      // ---------------------------------
+      // SORT A-Z
+      // ---------------------------------
+
+      if (option === "name") {
+
+        currentGyms.sort(
+          function (a, b) {
+
+            return a.name.localeCompare(
+              b.name
+            );
+
+          }
+        );
+
+      }
+
+
+      // ---------------------------------
+      // SORT BY TYPE
+      // ---------------------------------
+
+      if (option === "type") {
+
+        currentGyms.sort(
+          function (a, b) {
+
+            return a.type.localeCompare(
+              b.type
+            );
+
+          }
+        );
+
+      }
+
+
+      displayGyms(currentGyms);
+
     }
+  );
 
-    // A-Z
-    if (option === "name") {
-      currentGyms.sort(function (a, b) {
-        return a.name.localeCompare(b.name);
-      });
-    }
-
-    // Gym type
-    if (option === "type") {
-      currentGyms.sort(function (a, b) {
-        return a.type.localeCompare(b.type);
-      });
-    }
-
-    displayGyms(currentGyms);
-  });
 }
 
 
@@ -1134,17 +1370,26 @@ if (sortOptions) {
 // CLEAR SEARCH
 // =====================================
 
-searchInput.addEventListener("input", function () {
-  if (searchInput.value.trim() === "") {
-    displayGyms(gyms);
+searchInput.addEventListener(
+  "input",
+  function () {
 
-    resultsTitle.textContent =
-      "Affordable gyms near you";
+    if (
+      searchInput.value.trim() === ""
+    ) {
 
-    searchStatus.textContent =
-      "Enter a Bay Area city to start your search.";
+      displayGyms(gyms);
+
+      resultsTitle.textContent =
+        "Affordable gyms near you";
+
+      searchStatus.textContent =
+        "Enter a Bay Area city to start your search.";
+
+    }
+
   }
-});
+);
 
 
 // =====================================
